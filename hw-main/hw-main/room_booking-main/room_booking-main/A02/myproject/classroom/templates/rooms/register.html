@@ -1,0 +1,8 @@
+{% load static %}
+<h2>Register</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">ลงทะเบียน</button>
+</form>
+<a href="{% url 'login_user' %}">มีบัญชีแล้ว? เข้าสู่ระบบ</a>
