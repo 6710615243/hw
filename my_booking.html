@@ -1,0 +1,12 @@
+<h1>ห้องที่ฉันจอง</h1>
+<ul>
+    {% for booking in bookings %}
+    <li>
+        {{ booking.room_user.room_name }} - {{ booking.booked_at }}
+        <a href="{% url 'cancel_booking' booking.id %}">ยกเลิก</a>
+    </li>
+    {% empty %}
+    <li>คุณยังไม่ได้จองห้องใด</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'index' %}">กลับไปหน้าห้อง</a>
