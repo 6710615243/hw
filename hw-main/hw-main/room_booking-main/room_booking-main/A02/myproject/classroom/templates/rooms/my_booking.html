@@ -1,12 +1,28 @@
-<h1>ห้องที่ฉันจอง</h1>
-<ul>
-    {% for booking in bookings %}
-    <li>
-        {{ booking.room_user.room_name }} - {{ booking.booked_at }}
-        <a href="{% url 'cancel_booking' booking.id %}">ยกเลิก</a>
-    </li>
-    {% empty %}
-    <li>คุณยังไม่ได้จองห้องใด</li>
-    {% endfor %}
-</ul>
-<a href="{% url 'index' %}">กลับไปหน้าห้อง</a>
+<h2>สถานะการจองของคุณ</h2>
+
+<p>ชื่อผู้ใช้: {{ request.user.username }}</p>
+<p>อีเมล: {{ request.user.email }}</p>
+
+{% if bookings %}
+    <table border="1">
+        <tr>
+            <th>ห้อง</th>
+            <th>ชั่วโมงที่จอง</th>
+            <th>การจัดการ</th>
+        </tr>
+        {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.room_user.room_name }}</td>
+                <td>{{ booking.hours }}</td>
+                <td>
+                    <a href="{% url 'cancel_booking' booking.id %}">ยกเลิกการจอง</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>คุณยังไม่ได้จองห้อง</p>
+{% endif %}
+
+<br>
+<a href="{% url 'index' %}">กลับหน้าหลัก</a>
