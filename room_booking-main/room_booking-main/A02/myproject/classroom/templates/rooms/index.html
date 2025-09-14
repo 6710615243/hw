@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Booking</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css'%}">
+
+</head>
+<body>
+    <h1>Room currently available</h1>
+    <form method = "post" action = "">
+        {% csrf_token %}
+
+    <ul>
+        {% for room in rooms %}
+            <li class="room-card">
+                <h2>{{ room.room_name }}</h2>
+                <p>Code: {{ room.room_code }}</p>
+                <p>Capacity: {{ room.room_capacity }}</p>
+                <p>Hours: {{ room.available_hours }}</p>
+                <p><a href="{% url 'book_room' room.id %}">Available: {{ room.room_available }}</a></p>
+            </li>
+        {% empty %}
+            <p> No rooms available right now</p>
+        {% endfor %}
+        </ul>
+
+    <script src="{% static 'js/script.js'%}"></script>
+    <img src="{% static "images/.png" %}" alt="Logo">
+</body>
+</html>
