@@ -1,0 +1,65 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: lemonchiffon;
+    color: crimson;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+h1{
+    text-align: center;
+    color: darkblue;
+    margin-bottom: 30px;
+}
+
+.room-list{
+    list-style: none;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0;
+    gap: 20px;
+}
+
+.room-card {
+    display: block;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+}
+
+.room-card h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: #1e3a8a;
+}
+
+.room-card p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.room-card :hover{
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    background: #eaf2ff;
+}
+
+.logo{
+    display: block;
+    margin: 40px auto 0 auto;
+    max-width: 120px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease; 
+}
+
+.logo:hover{
+    opacity: 1;
+}
