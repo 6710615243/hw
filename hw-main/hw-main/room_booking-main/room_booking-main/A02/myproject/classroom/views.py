@@ -19,7 +19,7 @@ def login_user(request):
         else:
             messages.error(request, "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง")
     
-    return render(request, 'classroom/login.html')
+    return render(request, 'rooms/login.html')
 
 def logout_user(request):
     logout(request)
